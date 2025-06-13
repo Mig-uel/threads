@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsString, IsUUID } from 'class-validator';
+import { IsMongoId, IsNotEmpty, IsString, IsUUID } from 'class-validator';
 
 export class CreateCommentDto {
   @IsNotEmpty()
@@ -6,7 +6,7 @@ export class CreateCommentDto {
   text: string;
 
   @IsNotEmpty()
-  @IsUUID()
+  @IsMongoId()
   userId: string;
 
   parentId: string | null;
