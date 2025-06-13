@@ -11,7 +11,9 @@ export class Comment {
   @Prop()
   text: string;
 
-  @Prop()
+  @Prop({
+    default: 0,
+  })
   likes: number;
 
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User' })
