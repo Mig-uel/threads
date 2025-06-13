@@ -22,8 +22,15 @@ export class CommentsService {
     return comment.then((doc) => doc.populate(['user', 'parent']));
   }
 
-  findAll() {
+  findTopLevelComments() {
     return this.commentModel.find().populate(['user', 'parent']).exec();
+  }
+
+  findCommentsByParentId(parentId: string) {
+    return this.commentModel
+      .find({ parent: parentId })
+      .populate(['user', 'parent'])
+      .exec();
   }
 
   findOne(id: number) {
