@@ -32,7 +32,7 @@
     </div>
   </dl>
 
-  @if(isLoading()) {
+  @if(isLoading() && !nestedComments().length) {
   <section class="my-4">
     <p class="text-sm text-gray-500">Fetching replies...</p>
   </section>
