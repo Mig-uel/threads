@@ -13,7 +13,6 @@ import { CommentFormComponent } from '../comment-form/comment-form.component';
 export class CommentComponent {
   comment = input.required<Comment>();
   nestedComments = signal<Comment[]>([]);
-  nestedCommentsSubscription: Subscription | undefined;
 
   isExpanded = signal(false);
   isReplying = signal(false);
@@ -21,8 +20,10 @@ export class CommentComponent {
   constructor(private commentsService: CommentService) {}
 
   nestedCommentsEffect = effect((cleanupFn) => {
+    let nestedCommentsSubscription: Subscription | undefined;
+
     if (this.isExpanded()) {
-      this.nestedCommentsSubscription = this.commentsService
+      nestedCommentsSubscription = this.commentsService
         .getComments(this.comment()._id)
         .subscribe({
           next: (comments) => {
@@ -31,9 +32,7 @@ export class CommentComponent {
         });
     }
 
-    return cleanupFn(() => {
-      this.nestedCommentsSubscription?.unsubscribe();
-    });
+    cleanupFn(() => nestedCommentsSubscription?.unsubscribe());
   });
 
   toggleExpand() {
