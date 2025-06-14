@@ -4,7 +4,8 @@ Threads is a simple clone of the Threads app by Meta, built using Angular 2+ and
 
 ## Technologies Used
 
+- TypeScript
 - Angular 2+
 - NestJS
-- TypeScript
+- Mongoose
 - MongoDB
