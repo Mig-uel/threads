@@ -16,12 +16,15 @@
 
     <div class="flex items-center gap-4 lg:gap-5">
       <!-- Reply button -->
+      @if(!comment().parent) {
       <button type="button" (click)="toggleReplying()"
         class="inline-block rounded-sm border border-current px-4 py-1 text-sm font-medium text-indigo-600 transition hover:scale-110 hover:rotate-2 focus:ring-3 focus:outline-hidden">
         Reply
       </button>
+      }
 
       <!-- Expand button -->
+      @if (!comment().parent) {
       <button type="button" (click)="toggleExpand()" class="duration-200 transition-transform ease-in-out"
         [class.rotate-180]="isExpanded()">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
@@ -29,6 +32,7 @@
           <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
         </svg>
       </button>
+      }
     </div>
   </dl>
 
