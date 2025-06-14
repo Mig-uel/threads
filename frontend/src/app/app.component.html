@@ -1,0 +1,19 @@
+<div class="min-h-screen flex flex-col">
+  <header class="h-12 px-3 bg-indigo-700 text-white flex justify-between items-center">
+    <span>Threads</span>
+
+    <nav>
+      <ul class="flex gap-4">
+        <li><a routerLink="/" class="hover:underline hover:underline-offset-2"
+            routerLinkActive="underline underline-offset-2" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+        </li>
+        <li><a routerLink="/about" class="hover:underline hover:underline-offset-2"
+            routerLinkActive="underline underline-offset-2" [routerLinkActiveOptions]="{ exact: true }">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="px-3 py-4">
+    <router-outlet></router-outlet>
+  </main>
+</div>
