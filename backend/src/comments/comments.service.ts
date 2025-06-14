@@ -23,7 +23,12 @@ export class CommentsService {
   }
 
   findTopLevelComments() {
-    return this.commentModel.find().populate(['user', 'parent']).exec();
+    return this.commentModel
+      .find({
+        parent: null,
+      })
+      .populate(['user', 'parent'])
+      .exec();
   }
 
   findCommentsByParentId(parentId: string) {
