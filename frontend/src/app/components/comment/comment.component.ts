@@ -1,5 +1,5 @@
 import { Component, effect, input, signal } from '@angular/core';
-import type { Subscription } from 'rxjs';
+import { single, type Subscription } from 'rxjs';
 import type { Comment } from '../../interfaces/comment.interface';
 import { CommentService } from '../../services/comment.service';
 import { CommentFormComponent } from '../comment-form/comment-form.component';
@@ -16,6 +16,7 @@ export class CommentComponent {
 
   isExpanded = signal(false);
   isReplying = signal(false);
+  isLoading = signal(false);
 
   constructor(private commentsService: CommentService) {}
 
@@ -28,6 +29,7 @@ export class CommentComponent {
         .subscribe({
           next: (comments) => {
             this.nestedComments.set(comments);
+            this.isLoading.set(false);
           },
         });
     }
@@ -36,7 +38,10 @@ export class CommentComponent {
   });
 
   toggleExpand() {
-    this.isExpanded.update((prev) => !prev);
+    this.isExpanded.update((prev) => {
+      if (!prev) this.isLoading.set(true);
+      return !prev;
+    });
   }
 
   toggleReplying() {
