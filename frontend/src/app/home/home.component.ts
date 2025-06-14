@@ -3,10 +3,11 @@ import type { Subscription } from 'rxjs';
 import { CommentComponent } from '../components/comment/comment.component';
 import type { Comment } from '../interfaces/comment.interface';
 import { CommentService } from '../services/comment.service';
+import { CommentFormComponent } from "../components/comment-form/comment-form.component";
 
 @Component({
   selector: 'app-home',
-  imports: [CommentComponent],
+  imports: [CommentComponent, CommentFormComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
