@@ -21,6 +21,6 @@ export class CommentComponent {
     this.isReplying.update((prev) => !prev);
 
     // expand replies as well
-    if (this.isReplying()) this.isExpanded.update((prev) => true);
+    if (this.isReplying()) this.isExpanded.set(true);
   }
 }
