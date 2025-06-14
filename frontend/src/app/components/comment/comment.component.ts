@@ -23,7 +23,9 @@ export class CommentComponent {
   nestedCommentsEffect = effect((cleanupFn) => {
     let nestedCommentsSubscription: Subscription | undefined;
 
-    if (this.isExpanded() && !this.nestedComments().length) {
+    if (this.isExpanded()) {
+      this.isLoading.set(true);
+
       nestedCommentsSubscription = this.commentsService
         .getComments(this.comment()._id)
         .subscribe({
@@ -38,10 +40,7 @@ export class CommentComponent {
   });
 
   toggleExpand() {
-    this.isExpanded.update((prev) => {
-      if (!prev) this.isLoading.set(true);
-      return !prev;
-    });
+    this.isExpanded.update((prev) => !prev);
   }
 
   toggleReplying() {
