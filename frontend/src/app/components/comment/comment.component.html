@@ -2,14 +2,13 @@
   <div class="sm:flex sm:justify-between sm:gap-4 lg:gap-6">
     <div class="mt-4 sm:mt-0">
       <h3 class="text-lg font-medium text-pretty text-gray-900">
-        How I built my first website with Nuxt, Tailwind CSS and Vercel
+        {{comment().text}}
       </h3>
 
-      <p class="mt-1 text-sm text-gray-700">By John Doe</p>
+      <p class="mt-1 text-sm text-gray-700">&#64;{{comment().user.name}}</p>
 
       <p class="mt-4 line-clamp-2 text-sm text-pretty text-gray-700">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. At velit illum provident a, ipsa
-        maiores deleniti consectetur nobis et eaque.
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
       </p>
     </div>
   </div>
@@ -17,7 +16,7 @@
   <dl class="mt-6 flex justify-between items-center">
 
     <!-- Like button -->
-    <button>12 Likes</button>
+    <button>{{comment().likes}} Likes</button>
 
     <div class="flex items-center gap-4 lg:gap-5">
       <!-- Reply button -->
@@ -45,8 +44,8 @@
 
   @if(isExpanded()) {
   <section class="my-4">
-    <app-comment />
-    <app-comment />
+    <!-- <app-comment />
+    <app-comment /> -->
   </section>
   }
 
