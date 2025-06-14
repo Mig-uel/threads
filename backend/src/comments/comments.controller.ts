@@ -8,10 +8,10 @@ import {
   Post,
   Query,
 } from '@nestjs/common';
-import { ParseObjectIdPipe } from '@nestjs/mongoose';
 import { CommentsService } from './comments.service';
 import { CreateCommentDto } from './dto/create-comment.dto';
 import { UpdateCommentDto } from './dto/update-comment.dto';
+import { ParseObjectIdPipe } from 'src/parse-object-id/parse-object-id.pipe';
 
 @Controller('comments')
 export class CommentsController {
@@ -23,7 +23,7 @@ export class CommentsController {
   }
 
   @Get()
-  findAll(@Query('parentId', ParseObjectIdPipe) parentId: string) {
+  findAll(@Query('parentId', ParseObjectIdPipe) parentId?: string) {
     if (parentId) {
       return this.commentsService.findCommentsByParentId(parentId);
     }
