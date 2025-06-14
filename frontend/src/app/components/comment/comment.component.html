@@ -44,7 +44,7 @@
 
   @if(isReplying()) {
   <section class="my-4">
-    <app-comment-form buttonText="Send" placeholder="Write a reply..." />
+    <app-comment-form buttonText="Send" placeholder="Write a reply..." (formSubmitted)="createReply($event)" />
   </section>
   }
 
