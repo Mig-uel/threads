@@ -8,7 +8,7 @@ import { CommentFormComponent } from '../comment-form/comment-form.component';
   selector: 'app-comment',
   imports: [CommentFormComponent],
   templateUrl: './comment.component.html',
-  styleUrl: './comment.component.css',
+  styleUrls: ['./comment.component.css'],
 })
 export class CommentComponent {
   comment = input.required<Comment>();
