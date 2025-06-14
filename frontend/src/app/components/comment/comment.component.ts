@@ -1,5 +1,6 @@
-import { Component, signal } from '@angular/core';
-import { CommentFormComponent } from "../comment-form/comment-form.component";
+import { Component, input, signal } from '@angular/core';
+import { CommentFormComponent } from '../comment-form/comment-form.component';
+import type { Comment } from '../../interfaces/comment.interface';
 
 @Component({
   selector: 'app-comment',
@@ -8,6 +9,7 @@ import { CommentFormComponent } from "../comment-form/comment-form.component";
   styleUrl: './comment.component.css',
 })
 export class CommentComponent {
+  comment = input.required<Comment & { user: { name: string } }>();
   isExpanded = signal(false);
   isReplying = signal(false);
 
