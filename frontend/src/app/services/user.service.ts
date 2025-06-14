@@ -7,6 +7,8 @@ import { User } from '../interfaces/user.interface';
   providedIn: 'root',
 })
 export class UserService {
+  // TODO => save user in a signal
+
   localStorageKey = 'threads_user';
   constructor(private http: HttpClient) {}
 
