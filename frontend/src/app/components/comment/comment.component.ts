@@ -9,7 +9,7 @@ import type { Comment } from '../../interfaces/comment.interface';
   styleUrl: './comment.component.css',
 })
 export class CommentComponent {
-  comment = input.required<Comment & { user: { name: string } }>();
+  comment = input.required<Comment>();
   isExpanded = signal(false);
   isReplying = signal(false);
 
