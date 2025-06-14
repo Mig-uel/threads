@@ -23,7 +23,7 @@ export class CommentComponent {
   nestedCommentsEffect = effect((cleanupFn) => {
     let nestedCommentsSubscription: Subscription | undefined;
 
-    if (this.isExpanded()) {
+    if (this.isExpanded() && !this.nestedComments().length) {
       nestedCommentsSubscription = this.commentsService
         .getComments(this.comment()._id)
         .subscribe({
