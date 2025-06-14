@@ -38,18 +38,15 @@
   </dl>
 
   @if(isReplying()) {
-  <section class="nested-comments">
-    <div class="text-xl">
-      <app-comment-form />
-    </div>
+  <section class="my-4">
+    <app-comment-form />
   </section>
   }
 
   @if(isExpanded()) {
-  <section class="nested-comments">
-    <div class="text-xl">
-      This shows the nested comments section.
-    </div>
+  <section class="my-4">
+    <app-comment />
+    <app-comment />
   </section>
   }
 
