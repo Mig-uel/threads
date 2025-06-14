@@ -5,4 +5,5 @@ export interface Comment {
   parent?: Comment | null;
   user: User;
   _id: string;
+  likes: number;
 }
