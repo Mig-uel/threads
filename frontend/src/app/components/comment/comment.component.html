@@ -42,10 +42,16 @@
   </section>
   }
 
-  @if(isExpanded()) {
+  @if(isExpanded() && nestedComments().length) {
   <section class="my-4">
-    <!-- <app-comment />
-    <app-comment /> -->
+    @for (nestedComment of nestedComments(); track nestedComment._id) {
+    <app-comment [comment]="nestedComment" />
+    }
+  </section>
+  }
+  @else if(isExpanded() && !nestedComments().length) {
+  <section class="my-4">
+    <p class="text-sm text-gray-500">No replies yet</p>
   </section>
   }
 
