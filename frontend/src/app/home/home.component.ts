@@ -23,8 +23,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   getComments() {
     this.commentsSubscription = this.commentService.getComments().subscribe({
       next: (comments) => {
-        console.log(comments);
-
         this.comments.set(comments);
       },
     });
