@@ -31,6 +31,12 @@
     </div>
   </dl>
 
+  @if(isLoading()) {
+  <section class="my-4">
+    <p class="text-sm text-gray-500">Fetching replies...</p>
+  </section>
+  }
+
   @if(isReplying()) {
   <section class="my-4">
     <app-comment-form />
@@ -44,7 +50,7 @@
     }
   </section>
   }
-  @else if(isExpanded() && !nestedComments().length) {
+  @else if(isExpanded() && !nestedComments().length && !isLoading()) {
   <section class="my-4">
     <p class="text-sm text-gray-500">No replies yet</p>
   </section>
